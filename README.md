@@ -12,8 +12,8 @@
 ## Table of contents
 
 1. [Descripiton](#description)
-2. [How to run?](#how-to-run)
-3. [Screenshots](#screenshots)
+2. [Live](#live)
+3. [How to run?](#how-to-run)
 
 ## Description
 - Developed a comprehensive full-stack blogging platform featuring both a public blog and a secure administrator panel, significantly enhancing content creation and user interaction. Leveraged Google Gemini API for advanced AI capabilities.
@@ -22,6 +22,10 @@
 -	Enabled authorized users to create, view, publish, and delete blog posts and manage associated comments.
 -	Integrated with MongoDB database for efficient and reliable data storage.
 -	Designed a responsive user interface using React and Tailwind CSS for a seamless user experience.
+
+## Live
+
+🌐 [Quickblog](https://quickblog-ai-enhanced.netlify.app)
 
 ## How to run?
 
@@ -38,16 +42,20 @@ git clone https://github.com/<your-username>/QuickBlog-AI-Enhanced-Full-Stack-Bl
 - Configure the following credentials in the [`application.yml`](https://github.com/Shashank-TS/QuickBlog-AI-Enhanced-Full-Stack-Blogging-Platform/blob/main/quickblog/src/main/resources/application.yml) file.
 
 ```properties
-data:
-    mongodb:
-      uri: ${DB_URL}
+spring.application.name=quickblog
+spring.data.mongodb.uri=${DB_URL}
+spring.data.mongodb.repositories.type=auto
 
-jwt:
-  secret: ${JWT_SECRET}
-  expiration: ${JWT_EXPIRATION}
+jwt.secret=${JWT_SECRET}
+jwt.expiration=${JWT_EXPIRATION}
+frontend.url=${FRONTEND_URL}
+gemini.api.uri=${GEMINI_API_URL}
+gemini.api.key=${GEMINI_API_KEY}
+email.blog.link=${EMAIL_BLOG_LINK}
+email=${GMAIL_ADDRESS}
 
-frontend:
-  url: ${FRONTEND_URL}
+spring.mail.username=${GMAIL_ADDRESS}
+spring.mail.password=${GMAIL_APP_PASSWORD}
 ```
 
 ### Step 3: Run the backend.
@@ -68,7 +76,7 @@ npm install
 
 3. Run the app.
 ```
-npm start
+npm run dev
 ```
 
 -Access the application at [`http://localhost:5173/`](http://localhost:5173/).
